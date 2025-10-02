@@ -1,4 +1,7 @@
-from mmcv.utils import Registry
+try:
+    from mmcv.utils import Registry
+except ImportError:
+    from mmengine import Registry
 from trademaster.utils import build_from_cfg
 
 TRAINERS = Registry('trainer')

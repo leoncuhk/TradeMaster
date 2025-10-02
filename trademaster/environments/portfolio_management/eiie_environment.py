@@ -10,7 +10,7 @@ from trademaster.utils import get_attr, print_metrics
 import pandas as pd
 from ..custom import Environments
 from ..builder import ENVIRONMENTS
-from gym import spaces
+from gymnasium import spaces
 from collections import OrderedDict
 import pickle
 import os.path as osp
@@ -263,5 +263,5 @@ class PortfolioManagementEIIEEnvironment(Environments):
             if dd>mdd:
                 mdd=dd
         cr = np.sum(daily_return) / (mdd + 1e-10)
-        sor = np.sum(daily_return) / (np.nan_to_num(np.std(neg_ret_lst),0) + 1e-10) / (np.sqrt(len(daily_return))+1e-10)
+        sor = np.sum(daily_return) / (np.nan_to_num(np.std(neg_ret_lst), nan=0) + 1e-10) / (np.sqrt(len(daily_return))+1e-10)
         return tr, sharpe_ratio, vol, mdd, cr, sor

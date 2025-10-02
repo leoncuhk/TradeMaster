@@ -3,9 +3,12 @@ import os
 import re
 
 import mmcv
-from mmcv import Config
-from mmcv.utils import Registry
-from mmcv.utils import print_log
+from mmengine import Config
+try:
+    from mmcv.utils import Registry, print_log
+except ImportError:
+    from mmengine import Registry
+    from mmengine.logging import print_log
 import numpy as np
 import prettytable
 import random

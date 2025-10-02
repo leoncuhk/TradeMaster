@@ -12,7 +12,7 @@ import json
 from iopath.common.file_io import g_pathmgr as pathmgr
 from collections import OrderedDict
 from torch.utils.tensorboard import SummaryWriter
-import gym
+import gymnasium as gym
 from copy import deepcopy
 
 ROOT = str(Path(__file__).resolve().parents[2])

@@ -11,7 +11,7 @@ sys.path.append(ROOT)
 import torch
 import argparse
 import os.path as osp
-from mmcv import Config
+from mmengine import Config
 from trademaster.utils import replace_cfg_vals ,create_radar_score_baseline, calculate_radar_score, plot_radar_chart
 from trademaster.nets.builder import build_net
 from trademaster.environments.builder import build_environment

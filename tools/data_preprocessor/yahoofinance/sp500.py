@@ -9,7 +9,7 @@ sys.path.append(ROOT)
 
 import argparse
 import os.path as osp
-from mmcv import Config
+from mmengine import Config
 from trademaster.utils import replace_cfg_vals
 from trademaster.preprocessor.builder import build_preprocessor
 

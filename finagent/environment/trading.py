@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 from typing import Any
 import numpy as np
-import gym
+import gymnasium as gym
 from finagent.registry import ENVIRONMENT
 
 @ENVIRONMENT.register_module(force=True)

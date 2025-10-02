@@ -6,7 +6,7 @@ import os
 import torch
 import argparse
 import os.path as osp
-from mmcv import Config
+from mmengine import Config
 
 ROOT = str(Path(__file__).resolve().parents[2])
 sys.path.append(ROOT)

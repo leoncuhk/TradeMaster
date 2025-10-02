@@ -2,7 +2,7 @@ import numpy as np
 from typing import List, Any
 from sklearn.preprocessing import StandardScaler
 import random
-import gym
+import gymnasium as gym
 
 from pm.registry import ENVIRONMENT
 

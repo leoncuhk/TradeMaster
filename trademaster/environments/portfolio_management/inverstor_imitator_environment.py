@@ -15,7 +15,7 @@ import pandas as pd
 from ..custom import Environments
 from ..builder import ENVIRONMENTS
 from trademaster.pretrained import pretrained
-from gym import spaces
+from gymnasium import spaces
 from trademaster.nets.investor_imitator import MLPReg
 from collections import OrderedDict
 import pickle

@@ -10,7 +10,7 @@ sys.path.append(ROOT)
 import torch
 import argparse
 import os.path as osp
-from mmcv import Config
+from mmengine import Config
 from trademaster.utils import replace_cfg_vals
 from trademaster.imputation.builder import build_imputation
 

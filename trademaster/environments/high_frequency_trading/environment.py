@@ -1,7 +1,7 @@
 from __future__ import annotations
 import torch
 from collections import OrderedDict
-from gym import spaces
+from gymnasium import spaces
 from ..builder import ENVIRONMENTS
 from ..custom import Environments
 import pandas as pd

@@ -27,23 +27,41 @@ def env_creator(env_name):
 
 def select_algorithms(alg_name):
     alg_name = alg_name.upper()
-    if alg_name == "A2C":
-        from ray.rllib.agents.a3c.a2c import A2CTrainer as trainer
-    elif alg_name == "DDPG":
-        from ray.rllib.agents.ddpg.ddpg import DDPGTrainer as trainer
-    elif alg_name == 'PG':
-        from ray.rllib.agents.pg import PGTrainer as trainer
-    elif alg_name == 'PPO':
-        from ray.rllib.agents.ppo.ppo import PPOTrainer as trainer
-    elif alg_name == 'SAC':
-        from ray.rllib.agents.sac import SACTrainer as trainer
-    elif alg_name == 'TD3':
-        from ray.rllib.agents.ddpg.td3 import TD3Trainer as trainer
-    else:
-        print(alg_name)
-        print(alg_name == "A2C")
-        print(type(alg_name))
-        raise NotImplementedError
+    # Updated for Ray RLlib 2.x: agents -> algorithms
+    try:
+        if alg_name == "A2C":
+            from ray.rllib.algorithms.a2c import A2C as trainer
+        elif alg_name == "DDPG":
+            from ray.rllib.algorithms.ddpg import DDPG as trainer
+        elif alg_name == 'PG':
+            from ray.rllib.algorithms.pg import PG as trainer
+        elif alg_name == 'PPO':
+            from ray.rllib.algorithms.ppo import PPO as trainer
+        elif alg_name == 'SAC':
+            from ray.rllib.algorithms.sac import SAC as trainer
+        elif alg_name == 'TD3':
+            from ray.rllib.algorithms.td3 import TD3 as trainer
+        else:
+            print(alg_name)
+            print(alg_name == "A2C")
+            print(type(alg_name))
+            raise NotImplementedError
+    except ImportError:
+        # Fallback for older Ray versions
+        if alg_name == "A2C":
+            from ray.rllib.agents.a3c.a2c import A2CTrainer as trainer
+        elif alg_name == "DDPG":
+            from ray.rllib.agents.ddpg.ddpg import DDPGTrainer as trainer
+        elif alg_name == 'PG':
+            from ray.rllib.agents.pg import PGTrainer as trainer
+        elif alg_name == 'PPO':
+            from ray.rllib.agents.ppo.ppo import PPOTrainer as trainer
+        elif alg_name == 'SAC':
+            from ray.rllib.agents.sac import SACTrainer as trainer
+        elif alg_name == 'TD3':
+            from ray.rllib.agents.ddpg.td3 import TD3Trainer as trainer
+        else:
+            raise NotImplementedError
     return trainer
 
 # os.environ["RAY_LOG_TO_STDERR"] = "1"
